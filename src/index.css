@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  
+  --animate-mesh: mesh 20s ease infinite;
+  
+  @keyframes mesh {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #e4e4e7;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Custom Glassmorphism styles */
+.glass-panel-dark {
+  background: rgba(30, 30, 29, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Dynamic animated mesh background for premium visual impact */
+.mesh-bg-dark {
+  background: radial-gradient(circle at 10% 20%, rgba(20, 20, 20, 0.98) 0%, rgba(10, 10, 10, 0.99) 90%),
+              radial-gradient(circle at 80% 20%, rgba(217, 119, 6, 0.15) 0%, transparent 40%),
+              radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+  background-size: 200% 200%;
+}
+
+.mesh-bg-light {
+  background: radial-gradient(circle at 10% 20%, rgba(248, 250, 252, 0.99) 0%, rgba(241, 245, 249, 0.98) 90%),
+              radial-gradient(circle at 80% 20%, rgba(217, 119, 6, 0.05) 0%, transparent 40%),
+              radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.04) 0%, transparent 50%);
+  background-size: 200% 200%;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hide scrollbar classes */
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Utility Animations */
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
